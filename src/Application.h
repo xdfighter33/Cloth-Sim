@@ -38,7 +38,7 @@ public:
   //   void setUp(sf::RenderWindow test);
     void Input();
 
-    void Update(sf::Clock Clock);
+    void Update(float Clock);
 
     void Render();
 
