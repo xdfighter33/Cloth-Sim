@@ -18,6 +18,7 @@ sf::RenderTarget& getRenderTarget() {
         return m_target; // Assuming 'renderTarget' is the render target object in Renderer class
     }
 
+void draw_test_line(const Point& object1, const Point&  object2);
 
 void draw_dot(const Point& pointz) const; 
 

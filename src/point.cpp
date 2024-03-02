@@ -17,11 +17,11 @@ float step_dt = shit.getStepDt();
 
 
 // Declare Variables; 
-debug_variables(step_dt);
+//debug_variables(step_dt);
 
 
 
-sf::Vector2f grav{0,20.0f};
+sf::Vector2f grav{0,200.0f};
 
 
 uint32_t tittys = shit.return_sub_steps();
@@ -30,13 +30,13 @@ uint32_t tittys = shit.return_sub_steps();
 //Debug Test 
 
 
-set_velocity(sf::Vector2f(5,0),step_dt);
+//set_velocity(sf::Vector2f(50,0),step_dt);
 
 for(uint32_t i(shit.return_sub_steps()); i--;) {
-  //  ApplyGravity(grav);
+    ApplyGravity(grav);
   // setVelo(sf::Vector2f(2,0));
   // setAccel(sf::Vector2f(5,800.0f ));
-  // appplyConstraint(step_dt);
+   appplyConstraint(step_dt);
     update_positions(step_dt);
 }
 
@@ -66,12 +66,12 @@ void Point::setVelo(sf::Vector2f velo){
 
 void Point::debug_variables(float dt){
 
-std::cout << "M Frame: "  <<shit.return_m_frame() << std::endl;
-std::cout << "M time: " << shit.return_time() << std::endl; 
-std::cout << "Step DT: " << shit.getStepDt() << std::endl;
-std::cout << "Sub Step: " << shit.return_sub_steps() << std::endl;
-Velo(dt);
-
+//std::cout << "M Frame: "  <<shit.return_m_frame() << std::endl;
+//std::cout << "M time: " << shit.return_time() << std::endl; 
+//std::cout << "Step DT: " << shit.getStepDt() << std::endl;
+//std::cout << "Sub Step: " << shit.return_sub_steps() << std::endl;
+//Velo(dt);
+//get_pos();
 
 
 }

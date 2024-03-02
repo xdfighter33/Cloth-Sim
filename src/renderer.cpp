@@ -2,8 +2,8 @@
 
 void Renderer::draw_line(int x0, int y0, int x1, int y1, uint32_t color) const{
         sf::Vertex line[] = {
-              sf::Vertex(sf::Vector2f(10.f, 10.f)),
-              sf::Vertex(sf::Vector2f(150.f, 150.f))
+              sf::Vertex(sf::Vector2f(x0, y0)),
+              sf::Vertex(sf::Vector2f(x1, y1))
         };
         
         m_target.draw(line,2,sf::Lines);
@@ -20,13 +20,30 @@ void Renderer::draw_point(int x, int y, uint32_t color) const{
 }
 
 
+void Renderer::draw_test_line(const Point& object1, const Point& object2) {
+    const auto& obj1 = object1.getObjects();
+    const auto& obj2 = object2.getObjects();
+    
+    for (const auto& ob1 : obj1) {
+        for (const auto& ob2 : obj2) {
+            sf::Vertex line[] = {
+                sf::Vertex(sf::Vector2f(ob1.pos)),
+                sf::Vertex(sf::Vector2f(ob2.pos))
+            };
+
+            m_target.draw(line, 2, sf::Lines);
+        }
+    }
+}
+
 void Renderer::draw_dot(const Point& points) const {
      sf::CircleShape circle{1.0f};
-    circle.setPointCount(32);
+    circle.setPointCount(12);
     circle.setOrigin(1.0f,1.0f);
 
     
     const auto& obj = points.getObjects();
+
 
     for(const auto& objects : obj){
         circle.setPosition(objects.pos);

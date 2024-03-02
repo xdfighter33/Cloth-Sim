@@ -10,7 +10,7 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(Cloth src/main.cpp src/Application.cpp src/renderer.cpp src/physics/Physics.hpp src/point.cpp src/cloth.cpp)
+add_executable(Cloth src/main.cpp src/Application.cpp src/renderer.cpp src/physics/Physics.hpp src/point.cpp src/cloth.cpp src/stick.cpp)
 
 target_link_libraries(Cloth PRIVATE sfml-graphics)
 

@@ -1,3 +1,4 @@
+#include <SFML/Graphics.hpp>
 class Simulator {
     public:
     Simulator() = default;
@@ -83,6 +84,7 @@ float getStepDt() const{
 uint64_t getObjectCount() const{
     return m_objects.size();
 }
+
 
 
  private:

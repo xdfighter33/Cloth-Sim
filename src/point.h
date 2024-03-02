@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include "physics/Physics.hpp"
 #include "physics/Sim.hpp"
-
 class Point{
 
 public:
@@ -41,6 +40,7 @@ void return_pos(){
 
 
 void set_step_dt(float rate);
+
 const std::vector<Particle>& getObjects() const {
     return points;
 }
@@ -88,6 +88,13 @@ void setAccel(sf::Vector2f force);
 
 
 
+
+
+sf::Vector2f get_pos() const{
+    return pos;
+}
+
+
 void appplyConstraint(float dt)
 {
     for (auto& obj : points){
@@ -96,7 +103,7 @@ void appplyConstraint(float dt)
         for (uint64_t i{0}; i < object_count; i++)
         {
             Particle& object = points[i];
-            if(object.Get_Pos().y >= 200)
+            if(object.Get_Pos().y >= 680)
             {
                 object.pos.y += -1;
             }
@@ -104,7 +111,7 @@ void appplyConstraint(float dt)
             {
                 object.pos.y += 1;
             }
-             if(object.Get_Pos().x >= 250)
+             if(object.Get_Pos().x >= 680)
             {
                 object.pos.x += -1;
             }
@@ -117,7 +124,15 @@ void appplyConstraint(float dt)
 }
 
 
+    std::vector<sf::Vector2f> getPointPositions() const {
+        std::vector<sf::Vector2f> positions;
+        for(const auto& obj : points) {
+            positions.push_back(obj.Get_Pos());
+        }
+        return positions;
+    }
 
+    
 
 
 private:

@@ -55,7 +55,7 @@ struct Particle{
     }
 
 
-   const sf::Vector2f Get_Pos(){
+   const sf::Vector2f Get_Pos() const {
         
         return pos; 
     }
