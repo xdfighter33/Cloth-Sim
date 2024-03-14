@@ -3,18 +3,19 @@
 #include "mouse.h"
 #include "point.h"
 #include "stick.h"
-
 class Cloth{
 
 Point tests;
 Point object1;
 Point object2;
 Point object3;
+Stick* firstStick;
 private:
 
     sf::Vector2f gravity = {0,10.0f};
     float drag = 0.01;
     float elasticity = 10.0f;
+
 
     std::vector<Point*> points;
     std::vector<Stick*> sticks;

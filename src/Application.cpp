@@ -10,7 +10,7 @@ void Application::Update(float Clock){
 
    // Clock.restart();
 
-    std::cout << "Clock: " << Clock << std::endl;
+  //  std::cout << "Clock: " << Clock << std::endl;
     
     cloth->Update(Clock);
 

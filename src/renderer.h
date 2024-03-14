@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "point.h"
+#include "stick.h"
 
 
 class Renderer{
@@ -19,9 +20,9 @@ sf::RenderTarget& getRenderTarget() {
     }
 
 void draw_test_line(const Point& object1, const Point&  object2);
-
+void draw_test_line1(const Stick& stick);
 void draw_dot(const Point& pointz) const; 
-
+void draw_circle_line(const Point& object1 , const Point& object2);
 
 private:
 int wind_width;

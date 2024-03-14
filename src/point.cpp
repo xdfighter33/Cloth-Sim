@@ -28,7 +28,7 @@ uint32_t tittys = shit.return_sub_steps();
 
 
 //Debug Test 
-
+debug_variables(dt);
 
 //set_velocity(sf::Vector2f(50,0),step_dt);
 
@@ -70,9 +70,10 @@ void Point::debug_variables(float dt){
 //std::cout << "M time: " << shit.return_time() << std::endl; 
 //std::cout << "Step DT: " << shit.getStepDt() << std::endl;
 //std::cout << "Sub Step: " << shit.return_sub_steps() << std::endl;
-//Velo(dt);
-//get_pos();
 
+//Velo(dt);
+//return_pos();
+//std::cout << "Testing my shitty program: " << return_real_pos().x << std::endl;
 
 }
 
@@ -81,6 +82,7 @@ void Point::Velo(float dt ){
     for(auto& obj : points){
       VELO.x =  obj.getVelocity(dt).x;
       VELO.y =  obj.getVelocity(dt).y;
+    
     }
 
 

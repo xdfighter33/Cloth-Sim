@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "physics/Physics.hpp"
 #include "physics/Sim.hpp"
+
+
 class Point{
 
 public:
@@ -20,6 +22,7 @@ public:
 
 
 
+
 void set_velocity(sf::Vector2f v,float dt){
     for(auto& obj : points){
         obj.set_Velo(v,dt);
@@ -27,16 +30,19 @@ void set_velocity(sf::Vector2f v,float dt){
 };
 
 
-void return_pos(){
-    float x,y;
-    for(auto& obj : points){
-       x =  obj.Get_Pos().x;
-       y =  obj.Get_Pos().y;
-    }
 
-    std::cout << "Objects Position is at " << x << std::endl;; 
-    std::cout << "Object y Position is at " << y << std::endl; 
+
+//REAL RETURN POSITIONS FUNCTION
+sf::Vector2f return_Object_position(const Point& obj){
+    sf::Vector2f temp;
+    const auto& obj1 = obj.getObjects();
+    for(const auto& object : obj1){
+       temp.x = object.Get_Pos().x;
+       temp.y = object.Get_Pos().y;
+    }
+    return temp; 
 }
+
 
 
 void set_step_dt(float rate);
@@ -66,6 +72,7 @@ void set_size(float size);
 Particle& addObject(){
     return points.emplace_back(pos);
 }
+
 
 
 void update_positions(float dt,float subSteps);
@@ -103,7 +110,7 @@ void appplyConstraint(float dt)
         for (uint64_t i{0}; i < object_count; i++)
         {
             Particle& object = points[i];
-            if(object.Get_Pos().y >= 680)
+            if(object.Get_Pos().y >= 750)
             {
                 object.pos.y += -1;
             }
@@ -111,7 +118,7 @@ void appplyConstraint(float dt)
             {
                 object.pos.y += 1;
             }
-             if(object.Get_Pos().x >= 680)
+             if(object.Get_Pos().x >= 750)
             {
                 object.pos.x += -1;
             }
@@ -124,19 +131,15 @@ void appplyConstraint(float dt)
 }
 
 
-    std::vector<sf::Vector2f> getPointPositions() const {
-        std::vector<sf::Vector2f> positions;
-        for(const auto& obj : points) {
-            positions.push_back(obj.Get_Pos());
-        }
-        return positions;
-    }
 
     
 
 
 private:
+
 std::vector<Particle> points;
+//std::vector<Stick> sticks;
+
 Simulator shit;
 
 

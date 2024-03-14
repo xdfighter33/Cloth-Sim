@@ -14,6 +14,16 @@ class Simulator {
         object.set_Velo(v,getStepDt());
     }
 
+
+    void get_distance(Particle& object1, Particle& object2){
+    
+    const sf::Vector2f object_positions = (object1.pos - object2.pos);
+
+        float distance = sqrt(object_positions);
+
+
+        
+    }
     void updateObject(Particle& object, float dt){
         object.updatePosition(getStepDt());
     }
